@@ -16,8 +16,8 @@ class CompanyTest extends \PHPUnit_Framework_TestCase
         $company->setFirstName('Josh');
         $company->setLastName('Nykamp');
         $employeeName = $company->getEmployeeName();
-        //var_dump($employeeName);
-        //assert equals needs two values to compare (expected, actual).
+        //needs to be namespaced class name
+        $this->assertInstanceOf('stats\Company', $company);
         $this->assertEquals('Josh Nykamp', $employeeName);
     }
 
@@ -33,6 +33,8 @@ class CompanyTest extends \PHPUnit_Framework_TestCase
         $address = $company->getJSONAddress();
         $address = json_decode($address, true);
         $statusCode = $address['status_code'];
+        //this has to be a bool, "true" will fail  unless $this->assertTrue($address['success'] === 'true'); but then assertEquals should be used
+        $this->assertTrue($address['success']);
         $this->assertEquals(200, $statusCode);
         $this->assertArrayHasKey('data', $address);
     }

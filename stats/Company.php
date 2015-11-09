@@ -33,7 +33,7 @@ class Company
                     'state' => $this->getState(),
                     'zip' => $this->getZip()
         ];
-        return json_encode(['status_code' => '200', 'success' => 'true', 'data' => $data]);
+        return json_encode(['status_code' => '200', 'success' => true, 'data' => $data]);
     }
 
     public function getEmployeeName()
