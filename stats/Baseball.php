@@ -10,6 +10,11 @@ class Baseball
 	*/
    	public function calc_avg($ab,$hits)
 	{
+		if(!is_numeric($ab)) {
+            $avg = "not a number";
+            return $avg;
+            exit();
+        }
 		if ($ab == 0)
 		{
 			$avg = "0.000";
