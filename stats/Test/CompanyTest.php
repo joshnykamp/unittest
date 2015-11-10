@@ -21,7 +21,10 @@ class CompanyTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Josh Nykamp', $employeeName);
     }
 
-    public function testGetCompanyAddress() {
+    /**
+     * @test
+     */
+    public function get_json_company_address() {
         //test the response of fake api
         $company = new Company();
         $company->setCompanyName('Test Company');
